@@ -1,0 +1,35 @@
+import java.io.*;
+import java.util.Scanner;
+
+public class Encrypted {
+    public void encrypted() throws IOException {
+        System.out.println("Введите адрес файла для его зашифровки: ");
+        Scanner scanner = new Scanner(System.in);
+        String src = scanner.nextLine();
+
+        System.out.println("Введите ключ: ");
+
+        int key = Integer.parseInt(scanner.nextLine());
+
+        System.out.println("Введите адрес файла куда записать результат: ");
+
+        String dst = scanner.nextLine();
+
+        CaesarCipher caesarCipher = new CaesarCipher();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(src));
+             BufferedWriter writer = new BufferedWriter(new FileWriter(dst))) {
+            while (reader.ready()) {
+                String line = reader.readLine();
+                String encrypt = caesarCipher.encrypt(line, key);
+                writer.write(encrypt);
+                writer.newLine();
+            }
+
+            System.out.println("Содрежимое файла зашифровано и находится по адресу: " + dst);
+        }
+    }
+}
+//написать класс Decrypted
+//строка 23 поменять на декрипт
+//создать общий класс EncryptedDecrypted и создать мето энкриптеддекриптед булиан tru/false

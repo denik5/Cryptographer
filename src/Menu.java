@@ -1,8 +1,9 @@
+import java.io.IOException;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class Menu {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -15,7 +16,7 @@ public class Menu {
 
             String answer = scanner.nextLine();
             switch (answer) {
-                case "1" -> System.out.println("1. Зашифровать текст");
+                case "1" -> new Encrypted().encrypted();
                 case "2" -> System.out.println("2. Расшифровать текст");
                 case "3" -> System.out.println("3. Подобрать ключ методом перебора");
                 case "4" -> System.out.println("4. Синксический анализ текста");
