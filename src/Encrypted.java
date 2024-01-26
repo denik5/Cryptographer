@@ -33,3 +33,5 @@ public class Encrypted {
 //написать класс Decrypted
 //строка 23 поменять на декрипт
 //создать общий класс EncryptedDecrypted и создать мето энкриптеддекриптед булиан tru/false
+//
+//
