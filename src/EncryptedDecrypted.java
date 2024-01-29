@@ -1,9 +1,13 @@
 import java.io.*;
 import java.util.Scanner;
 
-public class Encrypted {
-    public void encrypted() throws IOException {
-        System.out.println("Введите адрес файла для его зашифровки: ");
+public class EncryptedDecrypted {
+    public void encryptedDecrypted(boolean flag) throws IOException {
+        if (flag) {
+            System.out.println("Введите адрес файла для его зашифровки: ");
+        } else {
+            System.out.println("Введите адрес файла для его расшифровки: ");
+        }
         Scanner scanner = new Scanner(System.in);
         String src = scanner.nextLine();
 
@@ -21,8 +25,8 @@ public class Encrypted {
              BufferedWriter writer = new BufferedWriter(new FileWriter(dst))) {
             while (reader.ready()) {
                 String line = reader.readLine();
-                String encrypt = caesarCipher.encrypt(line, key);
-                writer.write(encrypt);
+                String result = flag ? caesarCipher.encrypt(line, key) : caesarCipher.decrypt(line, key);
+                writer.write(result);
                 writer.newLine();
             }
 
@@ -30,3 +34,5 @@ public class Encrypted {
         }
     }
 }
+
+// убрать if else заменить на тернарный оператор

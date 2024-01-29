@@ -16,8 +16,8 @@ public class Menu {
 
             String answer = scanner.nextLine();
             switch (answer) {
-                case "1" -> new Encrypted().encrypted();
-                case "2" -> System.out.println("2. Расшифровать текст");
+                case "1" -> new EncryptedDecrypted().encryptedDecrypted(true);
+                case "2" -> new EncryptedDecrypted().encryptedDecrypted(false);
                 case "3" -> System.out.println("3. Подобрать ключ методом перебора");
                 case "4" -> System.out.println("4. Синксический анализ текста");
                 case "5" -> {
