@@ -3,15 +3,15 @@ import java.util.Scanner;
 
 public class Encrypted {
     public void encrypted() throws IOException {
-        System.out.println("Введите адрес файла для его зашифровки: ");
+        Util.writeMessage("Введите адрес файла для его зашифровки: ");
         Scanner scanner = new Scanner(System.in);
         String src = scanner.nextLine();
 
-        System.out.println("Введите ключ: ");
+        Util.writeMessage("Введите ключ: ");
 
         int key = Integer.parseInt(scanner.nextLine());
 
-        System.out.println("Введите адрес файла куда записать результат: ");
+        Util.writeMessage("Введите адрес файла куда записать результат: ");
 
         String dst = scanner.nextLine();
 
@@ -26,7 +26,7 @@ public class Encrypted {
                 writer.newLine();
             }
 
-            System.out.println("Содрежимое файла зашифровано и находится по адресу: " + dst);
+            Util.writeMessage("Содрежимое файла зашифровано и находится по адресу: " + dst);
         }
     }
 }

@@ -5,6 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class Bruteforce {
+    private static final int MAX_WORD_LENGTH = 28;
+
     public void bruteforce() throws IOException {
         Util.writeMessage("Введите адрес его файла для расшифровки: ");
 
@@ -33,7 +35,18 @@ public class Bruteforce {
     }
 
     private boolean isValidate(String text) {
+        String[] words = text.split(" ");
+        for (String word : words) {
+            if (word.length() > MAX_WORD_LENGTH) {
+                return false;
+            }
+        }
+        /*if (text) {
+
+        }*/
         return false;
     }
 }
+//проверка на наличие точки , запятой, пробела строка 44
+//удалить классы Decrypted, Encrypted
 

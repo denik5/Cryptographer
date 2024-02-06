@@ -7,7 +7,7 @@ public class Menu {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Выберете действие введя его номер:\n" +
+            Util.writeMessage("Выберете действие введя его номер:\n" +
                     "1. Зашифровать текст \n" +
                     "2. Расшифровать текст \n" +
                     "3. Подобрать ключ методом перебора \n" +
@@ -19,7 +19,7 @@ public class Menu {
                 case "1" -> new EncryptedDecrypted().encryptedDecrypted(true);
                 case "2" -> new EncryptedDecrypted().encryptedDecrypted(false);
                 case "3" -> System.out.println("3. Подобрать ключ методом перебора");
-                case "4" -> System.out.println("4. Синксический анализ текста");
+                case "4" -> System.out.println("4. Синтаксический анализ текста");
                 case "5" -> {
                     return;
                 }

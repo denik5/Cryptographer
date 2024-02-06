@@ -1,28 +1,24 @@
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Scanner;
 
 public class EncryptedDecrypted {
     public void encryptedDecrypted(boolean flag) throws IOException {
-        if (flag) {
-            System.out.println("Введите адрес файла для его зашифровки: ");
-        } else {
-            System.out.println("Введите адрес файла для его расшифровки: ");
-        }
-        Scanner scanner = new Scanner(System.in);
-        String src = scanner.nextLine();
+        Util.writeMessage(flag ? "Введите адрес файла для его зашифровки: " : "Введите адрес файла для его расшифровки: ");
+
+        String src = Util.readString();
 
         System.out.println("Введите ключ: ");
 
-        int key = Integer.parseInt(scanner.nextLine());
+        int key = Util.readInt();
 
-        System.out.println("Введите адрес файла куда записать результат: ");
-
-        String dst = scanner.nextLine();
+        Path dst = Util.buildFileName(src, flag ? "_encrypted" : "_decrypted");
 
         CaesarCipher caesarCipher = new CaesarCipher();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(src));
-             BufferedWriter writer = new BufferedWriter(new FileWriter(dst))) {
+             BufferedWriter writer = Files.newBufferedWriter(dst)) {
             while (reader.ready()) {
                 String line = reader.readLine();
                 String result = flag ? caesarCipher.encrypt(line, key) : caesarCipher.decrypt(line, key);
@@ -30,9 +26,7 @@ public class EncryptedDecrypted {
                 writer.newLine();
             }
 
-            System.out.println("Содрежимое файла зашифровано и находится по адресу: " + dst);
+            Util.writeMessage("Содрежимое файла зашифровано и находится по адресу: " + dst);
         }
     }
 }
-
-// убрать if else заменить на тернарный оператор

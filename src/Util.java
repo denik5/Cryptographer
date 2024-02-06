@@ -39,10 +39,16 @@ public class Util {
     }
 
     public static Path buildFileName(String path, String suffix) {
-        return null;
+        Path fullName = Path.of(path);
+        Path parent = fullName.getParent();
+        String fileName = fullName.getFileName().toString();
+        String newFileName;
+        if (fileName.contains(".")) {
+            int index = fileName.lastIndexOf(".");
+            newFileName = fileName.substring(0, index) + suffix + fileName.substring(index);
+        } else {
+            newFileName = fileName + suffix;
+        }
+        return parent.resolve(newFileName);
     }
 }
-//взять абсолютный путь для переданного path из него извлечь имя файла проверить если точка.
-// нет, если нет то добавить, если есть то добавить м/у именнем файла и точкой
-// убрать все сканнеры и системаут
-//как понять что текст корректный*
