@@ -41,12 +41,24 @@ public class Bruteforce {
                 return false;
             }
         }
-        /*if (text) {
-
-        }*/
+        boolean isValidate = false;
+        if (text.contains(". ") || text.contains(", ") || text.contains("? ") || text.contains("! ")) {
+            isValidate = true;
+        }
+        while (isValidate) {
+            Util.writeMessage(text);
+            Util.writeMessage("Понятен ли данный текст? /ДА/НЕТ ");
+            String answer = Util.readString();
+            if (answer.equalsIgnoreCase("Да")) {
+                return true;
+            } else if (answer.equalsIgnoreCase("Нет")) {
+                isValidate = false;
+            } else {
+                Util.writeMessage("Выбор между Да / Нет");
+            }
+        }
         return false;
     }
 }
-//проверка на наличие точки , запятой, пробела строка 44
-//удалить классы Decrypted, Encrypted
+//проверить как работает Bruteforce , найти почему игнорируются и исправить
 
