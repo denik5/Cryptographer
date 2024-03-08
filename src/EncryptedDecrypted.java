@@ -25,7 +25,6 @@ public class EncryptedDecrypted {
                 writer.write(result);
                 writer.newLine();
             }
-
             Util.writeMessage("Содрежимое файла зашифровано и находится по адресу: " + dst);
         }
     }
