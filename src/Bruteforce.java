@@ -19,7 +19,7 @@ public class Bruteforce {
 
             StringBuilder builder = new StringBuilder();
             while (reader.ready()) {
-                String line = reader.readLine();
+                String line = reader.readLine();  // теряется символ переноса строки, использовать коллекцию строки (ArrayList)
                 builder.append(line);
             }
             CaesarCipher caesarCipher = new CaesarCipher();
@@ -60,5 +60,4 @@ public class Bruteforce {
         return false;
     }
 }
-//проверить как работает Bruteforce , найти почему игнорируются и исправить
 
